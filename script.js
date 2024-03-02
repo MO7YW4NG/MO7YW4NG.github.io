@@ -1,10 +1,10 @@
-var bool = matchMedia('(prefers-color-scheme: dark)').matches;
-document.addEventListener("DOMContentLoaded", function () {
-  if (!bool) {
-    $('#theme').text('dark_mode');
-    $("body").addClass("light");
-  }
-});
+// var bool = matchMedia('(prefers-color-scheme: dark)').matches;
+// document.addEventListener("DOMContentLoaded", function () {
+//   if (!bool) {
+//     $('#theme').text('dark_mode');
+//     $("body").addClass("light");
+//   }
+// });
 function copy(str) {
   navigator.clipboard.writeText(str);
   hint('Copied!');

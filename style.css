@@ -107,6 +107,7 @@ main {
 
 .about {
     height: 10cm;
+    gap: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,7 +116,10 @@ main {
 .info-box {
     margin: 6px;
     height: 100%;
-    width: auto;
+}
+
+#right {
+    width: 11cm;
 }
 
 .skills {
@@ -252,7 +256,6 @@ div.quote .window {
 }
 
 .timeline {
-    width: 85%;
     margin-left: 12px;
     margin-right: auto;
     display: flex;
@@ -262,6 +265,7 @@ div.quote .window {
 }
 
 .timeline-item {
+    width: auto;
     list-style: disc;
     color: var(--text-color);
     line-height: 19px;
@@ -312,7 +316,6 @@ ol li.timeline-item :before {
     color: var(--text-color);
     font-style: italic;
     font-size: small;
-
 }
 
 nav {
@@ -399,4 +402,69 @@ nav {
 
 footer {
     text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    main {
+        width: auto;
+    }
+
+    p {
+        font-size: 19px;
+    }
+
+    p.contact {
+        font-size: 24px;
+    }
+
+    span {
+        font-size: 16px;
+    }
+
+    #right {
+        min-width: 10cm;
+        width: auto;
+    }
+
+    #about {
+        height: 20.8cm;
+    }
+
+    .main-text {
+        font-size: 15px;
+    }
+
+    .timeline-item:hover .main-text {
+        font-size: 16px;
+    }
+
+    .sub-text {
+        font-size: 13px;
+    }
+
+    .about {
+        margin-top: 190px;
+        flex-direction: column;
+    }
+
+    #menu {
+        width: auto;
+        margin: 4px auto;
+    }
+
+    #menu li {
+        display: flex;
+        width: 30vw;
+        height: max(5vw, 24px);
+        ;
+        line-height: -5vw;
+    }
+
+    #menu a {
+        width: 100%;
+        font-size: 21px;
+        font-size: 4vw;
+        font-size: max(4vw, 14px);
+    }
+
 }
