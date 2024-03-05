@@ -1,4 +1,4 @@
-// var bool = matchMedia('(prefers-color-scheme: dark)').matches;
+var bool = true;
 // document.addEventListener("DOMContentLoaded", function () {
 //   if (!bool) {
 //     $('#theme').text('dark_mode');

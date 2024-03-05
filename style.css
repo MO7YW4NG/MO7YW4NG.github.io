@@ -18,13 +18,33 @@
 }
 
 .light {
-    --bg: rgb(87, 17, 109);
+    /* --bg: rgb(87, 17, 109); */
+    --bg: rgb(0, 0, 0);
+    background:
+        linear-gradient(-90deg, rgba(0, 0, 0, .05) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, .05) 1px, transparent 1px),
+        linear-gradient(-90deg, rgba(0, 0, 0, .04) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, .04) 1px, transparent 1px),
+        linear-gradient(transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+        linear-gradient(-90deg, #aaa 1px, transparent 1px),
+        linear-gradient(-90deg, transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+        linear-gradient(#aaa 1px, transparent 1px),
+        #f2f2f2;
+    background-size:
+        2px 2px,
+        2px 2px,
+        30px 30px,
+        30px 30px,
+        30px 30px,
+        30px 30px,
+        30px 30px,
+        30px 30px;
     --text-color: rgb(36, 36, 36);
     --window-color: rgb(233, 232, 232);
     --page-color: rgb(224, 224, 224);
-    --highlight-color: rgb(216, 105, 233);
-    --photo-border-color: rgb(238, 72, 216);
-    --photo-border-glow-color: rgba(224, 41, 193, 0.6);
+    --highlight-color: rgb(206, 35, 129);
+    --photo-border-color: #e8188a;
+    --photo-border-glow-color: rgba(255, 71, 141, 0.6);
 }
 
 p {
@@ -58,7 +78,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 24cm;
 }
 
 .title {
@@ -84,9 +103,15 @@ main {
 .quote:hover,
 .education:hover,
 .skills:hover {
+    transform: scale3d(1.03, 1.03, 1.03);
+
     .page {
-        box-shadow: 8px 0px 4px -4px #000;
+        box-shadow: 8px 0px 4px -4px rgb(0 0 0 / 0.3);
         opacity: 1;
+    }
+
+    .window {
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
     }
 }
 
@@ -122,12 +147,23 @@ main {
     width: 11cm;
 }
 
-.skills {
+#skills {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
-    width: 17.5cm;
+}
+
+.skills .page {
+    display: flex;
+    width: 10%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .title {
+        visibility: hidden;
+    }
 }
 
 .self {
@@ -199,7 +235,8 @@ p.contact {
     margin-top: 4px;
     margin-bottom: 10px;
     padding: 4px;
-    border: 4px solid var(--photo-border-color);
+    border: 4px solid;
+    border-color: var(--photo-border-color);
     border-radius: 50%;
     height: 180px;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -208,7 +245,8 @@ p.contact {
 }
 
 .self:hover {
-    box-shadow: 6px 6px 4px -4px #000;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+    transform: scale3d(1.03, 1.03, 1.03);
 
     .photo img {
         height: 184px;
@@ -227,6 +265,7 @@ p.quote:hover {
     transition: 30ms;
     font-weight: 600;
     font-size: 17px;
+    color: var(--highlight-color)
 }
 
 body:not(.light) p.quote:hover {
@@ -351,7 +390,7 @@ nav {
 #menu a {
     width: 100%;
     height: 30px;
-    color: white;
+    color: var(--text-color);
     float: left;
     overflow: hidden;
     text-decoration: none;
@@ -382,7 +421,7 @@ nav {
     user-select: none;
     -webkit-user-select: none;
     font-size: 48px;
-    transition: 0.3s;
+    transition: 0.2s;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
@@ -405,8 +444,9 @@ footer {
 }
 
 @media screen and (max-width:768px) {
-    main {
-        width: auto;
+
+    :root * {
+        transition: all 300ms ease, left 300ms ease-in-out;
     }
 
     p {
@@ -417,13 +457,21 @@ footer {
         font-size: 24px;
     }
 
+    #contact-icon {
+        margin-left: 4px;
+    }
+
     span {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #right {
         min-width: 10cm;
         width: auto;
+    }
+
+    p.quote:hover {
+        font-size: 19.5px;
     }
 
     #about {
@@ -453,10 +501,8 @@ footer {
     }
 
     #menu li {
-        display: flex;
         width: 30vw;
         height: max(5vw, 24px);
-        ;
         line-height: -5vw;
     }
 
@@ -465,6 +511,10 @@ footer {
         font-size: 21px;
         font-size: 4vw;
         font-size: max(4vw, 14px);
+    }
+
+    #hint-box {
+        display: none;
     }
 
 }
