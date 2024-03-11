@@ -1,0 +1,66 @@
+@keyframes slide-rotate-hor-b-fwd {
+    0% {
+        transform: translateY(0) translateZ(0) rotateX(0deg);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: translateY(150px) translateZ(130px) rotateX(90deg);
+        transform-origin: top center;
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@property --percent {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@keyframes progress {
+    from {
+        --percent: 0%
+    }
+}
+
+@keyframes pulsate-fwd {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        color: var(--text-color);
+        /* color:rgb(33, 96, 104); */
+        text-shadow: none;
+    }
+
+    100% {
+        color: var(--highlight-color);
+
+        text-shadow: 0 0 0.6rem var(--photo-border-color), 0 0 1.5rem var(--photo-border-glow-color),
+            -0.2rem 0.1rem 1rem var(--photo-border-glow-color), 0.2rem 0.1rem 1rem var(--photo-border-glow-color),
+            0 -0.5rem 2rem var(--highlight-color), 0 0.5rem 3rem var(--highlight-color);
+    }
+}
