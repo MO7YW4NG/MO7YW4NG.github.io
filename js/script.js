@@ -1,10 +1,15 @@
 var bool = true;
-// document.addEventListener("DOMContentLoaded", function () {
-//   if (!bool) {
-//     $('#theme').text('dark_mode');
-//     $("body").addClass("light");
-//   }
-// });
+$(document).ready(function () {
+  $(document).on('click', '#experience-menu li:not(.selected)', function () {
+    var li = this;
+    if (li.classList.contains("selected"))
+      return;
+    $('div.' + $(".selected").attr('id')).css({ 'display': 'none' });
+    $("li.selected").removeClass("selected");
+    li.classList.add("selected");
+    $("div." + li.id).css({ 'display': '' });
+  });
+});
 function copy(str) {
   navigator.clipboard.writeText(str);
   hint('Copied!');

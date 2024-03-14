@@ -50,7 +50,7 @@
 p {
     color: var(--text-color);
     user-select: none;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.09rem;
 }
 
 span {
@@ -67,25 +67,25 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Trirong", "Noto Sans TC", sans-serif;
+    font-family: "Cabin", "Noto Sans TC", sans-serif;
 }
 
 section {
-    padding: 8px;
+    padding: .75rem;
     width: 100%;
 }
 
 main {
-    padding: 8px;
+    padding: .75rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .title {
-    font-size: 28px;
+    font-size: 1.75rem;
     word-wrap: normal;
     word-break: keep-all;
     font-weight: 600;
@@ -95,7 +95,7 @@ main {
 
 .page {
     opacity: 0.95;
-    padding: 2px;
+    padding: .15rem;
     padding-left: 16px;
     padding-right: 3em;
     display: flex;
@@ -123,22 +123,21 @@ main {
 
 .window {
     padding: 8px;
-    width: 100%;
     overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
     word-wrap: break-word;
     text-overflow: ellipsis;
     word-spacing: normal;
     word-break: break-word;
     background-color: var(--window-color);
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .about {
-    height: 10cm;
-    gap: 6px;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -147,13 +146,16 @@ main {
 .info-box {
     margin: 6px;
     height: 100%;
+    flex-grow: 1;
     /* width: max(34%, 226.76px); */
 }
 
 #right {
-    flex-grow: 1;
-    flex-shrink: 1;
+    display: flex;
+    gap: 0.711rem;
+    flex-direction: column;
 }
+
 
 #skills {
     display: flex;
@@ -166,126 +168,173 @@ main {
 
 .skills,
 .experiences {
-    padding-inline: 6px;
+    padding: 6px;
     width: 100%;
     display: flex;
     flex-direction: column;
 
     .window {
-        flex-grow: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
+}
 
-    .window #progress,
-    .window #professional {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        gap: 24px;
-        margin-block: 8px;
-    }
+ul#skill-slider {
+    list-style-type: none;
+    display: flex;
+    justify-content: start;
+    gap: 24px;
+    margin-block: 8px;
+    max-width: 28.5rem;
+}
 
-    .window .progress-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+.progress-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-    .window .subtitle {
-        text-align: center;
-    }
+.subtitle {
+    text-align: center;
+}
 
-    .window .skills-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 4px;
-    }
+.skills-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4px;
+}
 
-    .window .skills-section:hover .title {
-        font-size: 30px;
+.skills-section:hover .title {
+    font-size: 30px;
+    color: var(--highlight-color);
+}
+
+.circle {
+    transition: 0.3s;
+    position: relative;
+    flex-grow: 1;
+    width: 120px;
+    height: 120px;
+    margin: 0.5rem;
+    z-index: 2;
+    margin-block: 0.45rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: conic-gradient(var(--photo-border-color) var(--percent), var(--text-color) 0);
+}
+
+.circle:hover {
+    animation: progress 1s ease-in, pulsate-fwd 0.5s ease-in-out both;
+
+    +p {
+        font-weight: 800;
         color: var(--highlight-color);
     }
 
-    .window .circle {
-        transition: 0.3s;
-        position: relative;
-        flex-shrink: 1;
-        flex-grow: 1;
-        width: 120px;
-        height: 120px;
-        margin: 0.5rem;
-        z-index: 2;
-        margin-block: 0px;
-        border-radius: 50%;
-        overflow: hidden;
-        background-image: conic-gradient(var(--photo-border-color) var(--percent), var(--text-color) 0);
+    .inner>p {
+        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        visibility: visible;
     }
 
-    .window .circle:hover {
-        animation: progress 1s ease-in, pulsate-fwd 0.5s ease-in-out both;
+    #icon {
+        animation: slide-rotate-hor-b-fwd 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    }
+}
 
-        +p {
-            font-weight: 800;
+#icon {
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    transition: 0.3s;
+    position: relative;
+    color: var(--highlight-color);
+    z-index: 1;
+}
+
+.inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: var(--window-color);
+    border-radius: 50%;
+    color: var(--text-color);
+
+    >p {
+        font-size: 36px;
+        transition: 1ms;
+        position: relative;
+        visibility: hidden;
+    }
+
+    #small {
+        font-size: 18px;
+        top: 5px;
+    }
+}
+
+#experience-menu {
+    display: flex;
+    list-style: none;
+    gap: 14px;
+    margin: 4px;
+}
+
+#experience-menu p.btn {
+    font-size: 20px;
+    text-shadow: 2px 2px 2px var(--bg);
+    line-height: 0.8rem;
+    margin-inline: 8px;
+}
+
+#experience-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9rem;
+
+
+    &.selected {
+        >p.btn {
             color: var(--highlight-color);
         }
 
-        .inner>p {
-            animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            visibility: visible;
-        }
-
-        #icon {
-            animation: slide-rotate-hor-b-fwd 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        #experience-menu-icon {
+            color: var(--highlight-color)
         }
     }
 
-    .window #icon {
-        top: 30px;
-        left: 30px;
-        width: 60px;
-        height: 60px;
-        transition: 0.3s;
-        position: relative;
+    #experience-menu-icon {
+        margin-inline-end: 6px;
+        color: var(--text-color)
+    }
+}
+
+#experience-menu li:hover {
+    animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+    >p.btn {
         color: var(--highlight-color);
-        z-index: 1;
     }
 
-    .window .inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: .3s;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90px;
-        height: 90px;
-        background: var(--window-color);
-        border-radius: 50%;
-        color: var(--text-color);
-
-        >p {
-            font-size: 36px;
-            position: relative;
-            visibility: hidden;
-        }
-
-        #small {
-            font-size: 18px;
-            top: 5px;
-        }
+    #experience-menu-icon {
+        color: var(--highlight-color)
     }
 }
 
 .self {
-    height: 100%;
     padding: 8px;
     background-color: var(--window-color);
     border-radius: 32px;
@@ -296,15 +345,42 @@ main {
     align-items: center;
 }
 
+.portrait {
+    background-image: url("../img/portrait.jpg");
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center, center;
+    border-radius: 50%;
+}
+
+.border {
+    flex-shrink: 1;
+    padding: 4px;
+    border: 4px solid;
+    border-color: var(--photo-border-color);
+    border-radius: 50%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
 .contact {
-    margin: 4px;
-    font-size: 22px;
+    margin: .2rem;
     text-align: center;
     justify-content: center;
 }
 
 p.contact {
-    margin: 0%;
+    font-size: 1.5rem;
+}
+
+#eng-name {
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.95;
 }
 
 #contact-icon {
@@ -351,26 +427,13 @@ p.contact {
     color: var(--highlight-color);
 }
 
-.photo img {
-    margin: 16px;
-    margin-top: 4px;
-    margin-bottom: 10px;
-    padding: 4px;
-    border: 4px solid;
-    border-color: var(--photo-border-color);
-    border-radius: 50%;
-    height: 180px;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    justify-content: center;
-    display: flex;
-}
-
 .self:hover {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
     transform: scale(1.03);
 
-    .photo img {
-        height: 184px;
+    .portrait {
+        height: 10.6rem;
+        width: 10.6rem;
         transition: 0.3s;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -382,7 +445,7 @@ p.contact {
 }
 
 p.quote:hover {
-    transition: 30ms;
+    transition: 100ms;
     font-weight: 600;
     font-size: 17px;
     color: var(--highlight-color)
@@ -392,7 +455,8 @@ body:not(.light) p.quote:hover {
     animation: shine 3s infinite;
 }
 
-.quote .window {
+.quote .window,
+.education .window {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -401,6 +465,7 @@ body:not(.light) p.quote:hover {
 .timeline {
     margin-left: 12px;
     margin-right: auto;
+    margin-bottom: 6px;
     display: flex;
     flex-direction: column;
     border-left: 5px solid var(--page-color);
@@ -475,8 +540,8 @@ nav {
 
 #menu li {
     width: 258px;
-    height: 28px;
-    line-height: 30px;
+    height: 30px;
+    line-height: 26px;
     float: right;
     overflow: hidden;
     text-align: center;
@@ -485,7 +550,7 @@ nav {
 
 #menu a {
     width: 100%;
-    height: 30px;
+    height: 32px;
     color: var(--text-color);
     float: left;
     overflow: hidden;
@@ -551,19 +616,30 @@ footer {
     }
 
     p {
-        font-size: 19px;
+        font-size: 1.18rem;
+        text-overflow: ellipsis;
     }
 
     p.contact {
-        font-size: 24px;
+        text-overflow: ellipsis;
+        font-size: min(1.5rem, max(1.3rem, 5vw));
+    }
+
+    .contact {
+        margin: .1rem;
+    }
+
+    #eng-name {
+        font-size: max(0.8em, 1.8vw);
     }
 
     span {
-        font-size: 14px;
+        font-size: min(0.85rem, max(0.7rem, 3vw));
+        text-overflow: ellipsis;
     }
 
     .info-box {
-        min-width: 10.4cm;
+        min-width: 85vw;
     }
 
     .window {
@@ -574,39 +650,56 @@ footer {
         flex-direction: row;
     }
 
-    .photo img {
-        height: 170px;
-        margin-inline: 2px;
+    .self:hover .portrait {
+        width: max(7.25rem, 24vw);
+        height: max(7.25rem, 24vw);
     }
 
-    #right {
-        width: auto;
+    .portrait {
+        width: max(7.05rem, 22vw);
+        height: max(7.05rem, 22vw);
+        padding-bottom: 100%;
+        margin-inline: 0.2rem;
+    }
+
+    .border {
+        margin-inline: 0.5vw;
+        padding: 0.1vw;
+    }
+
+    #contact-icon {
+        min-width: 0;
     }
 
     p.quote:hover {
-        font-size: 18.8px;
+        font-size: 1.2rem;
+    }
+
+    #right {
+        gap: 1.4rem;
     }
 
     .about {
         flex-direction: column;
-        height: 16.4cm;
+        height: auto;
+        gap: 0.7rem;
     }
 
     .main-text {
-        font-size: 15px;
+        font-size: 1.1rem;
     }
 
     .timeline-item:hover .main-text {
-        font-size: 16px;
+        font-size: 1.16rem;
     }
 
     .sub-text {
-        font-size: 13px;
+        font-size: 0.84rem;
     }
 
     #menu {
         width: auto;
-        margin: 4px auto;
+        margin: 0rem auto;
     }
 
     #menu li {
@@ -637,30 +730,36 @@ footer {
         font-size: 16px;
     }
 
+    ul#skill-slider {
+        justify-content: center;
+        gap: 3vw !important;
+        flex-wrap: wrap;
+    }
+
     .skills-section .progress-section {
         .circle {
-            width: 80px;
-            height: 80px;
+            width: 6rem;
+            height: 6rem;
         }
 
         #icon {
-            top: 20px;
-            left: 20px;
-            width: 38px;
-            height: 38px;
+            top: 24px;
+            left: 24px;
+            width: 46px;
+            height: 46px;
         }
 
         .inner {
-            width: 60px;
-            height: 60px;
+            width: 4.5rem;
+            height: 4.5rem;
 
             >p {
-                font-size: 24px;
+                font-size: 32px;
             }
 
             #small {
                 top: 4px;
-                font-size: 14px;
+                font-size: 18px;
             }
 
         }
