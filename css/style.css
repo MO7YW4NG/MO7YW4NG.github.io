@@ -122,6 +122,7 @@ main {
 }
 
 .window {
+    transition: 0.3s;
     padding: 8px;
     overflow: hidden;
     flex-grow: 1;
@@ -137,9 +138,12 @@ main {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
+#about {
+    margin-block: 22vh;
+}
+
 .about {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -168,7 +172,7 @@ main {
 
 .skills,
 .experiences {
-    padding: 6px;
+    margin: 6px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -288,6 +292,7 @@ ul#skill-slider {
 #experience-menu {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
     gap: 14px;
     margin: 4px;
 }
@@ -432,8 +437,8 @@ p.contact {
     transform: scale(1.03);
 
     .portrait {
-        height: 10.6rem;
-        width: 10.6rem;
+        height: 10.3rem;
+        width: 10.3rem;
         transition: 0.3s;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -519,6 +524,7 @@ ol li.timeline-item :before {
 }
 
 nav {
+    margin-block: 10vh;
     padding: 8px;
     position: sticky;
     top: 0px;
@@ -563,6 +569,104 @@ nav {
     opacity: 0.7;
 }
 
+.tab {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+ul#works-list {
+    display: flex;
+    flex-direction: column;
+    list-style: square;
+    gap: 8px;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 32px;
+    width: 32rem;
+}
+
+#works-list>li {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+#works-list>li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    border-bottom: 1px solid var(--text-color);
+}
+
+#works-list .position {
+    font-size: 20px;
+    color: var(--highlight-color);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+#works-list .company {
+    color: var(--text-color);
+    font-size: 14px;
+    letter-spacing: 0.06rem;
+    /* justify-content: end; */
+}
+
+#works-list i[class$="icon"] {
+    line-height: 24px;
+    margin-inline: 4px;
+}
+
+#works-list .date {
+    font-style: italic;
+}
+
+#works-list .description {
+    list-style: inside;
+}
+
+#works-list .tag {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style: none;
+}
+
+#works-list .tag li {
+    font-size: 1.05rem;
+    margin-block: 8px;
+    margin-inline: 4px;
+    padding-inline: 8px;
+    border-radius: 25%;
+    background-color: var(--photo-border-glow-color);
+}
+
+#works-list .img-container {
+    float: left;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-block: 16px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+#works-list .img-container img {
+    position: relative;
+    border-radius: 15px;
+    width: 95%;
+    box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+}
+
 #theme {
     background-color: var(--page-color);
     border-radius: 30%;
@@ -586,11 +690,23 @@ nav {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
+.reveal {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 #hint-box {
-    border-radius: 30%;
+    border-radius: 100px;
     padding: 4%;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     bottom: 12px;
     z-index: 10;
     left: 50%;
@@ -639,7 +755,7 @@ footer {
     }
 
     .info-box {
-        min-width: 85vw;
+        width: 100%;
     }
 
     .window {
@@ -659,7 +775,7 @@ footer {
         width: max(7.05rem, 22vw);
         height: max(7.05rem, 22vw);
         padding-bottom: 100%;
-        margin-inline: 0.2rem;
+        margin: 0.2rem;
     }
 
     .border {
@@ -679,10 +795,18 @@ footer {
         gap: 1.4rem;
     }
 
+    #about {
+        margin-block: 0px;
+    }
+
     .about {
         flex-direction: column;
         height: auto;
         gap: 0.7rem;
+    }
+
+    nav {
+        margin-block: 0px;
     }
 
     .main-text {

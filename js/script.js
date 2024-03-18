@@ -7,9 +7,15 @@ $(document).ready(function () {
     $('div.' + $(".selected").attr('id')).css({ 'display': 'none' });
     $("li.selected").removeClass("selected");
     li.classList.add("selected");
+    $("div." + li.id).animate({
+      opacity: "toggle",
+      height: "toggle"
+    }, 'slow');
     $("div." + li.id).css({ 'display': '' });
   });
+  $(document).on('scroll', reveal);
 });
+
 function copy(str) {
   navigator.clipboard.writeText(str);
   hint('Copied!');
@@ -35,4 +41,19 @@ function delay(n) {
   return new Promise(function (resolve) {
     setTimeout(resolve, n * 1000);
   });
+}
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 30;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
 }

@@ -16,7 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
     <!-- Icon -->
-    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <link rel="icon" href="img/icon.ico" type="image/x-icon">
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/9b3624985e.js" crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@
                 <li><a href="#experiences">Experiences</a></li>
             </ul>
         </nav>
-        <section id="skills">
+        <section id="skills" class="reveal">
             <div class="skills">
                 <div class="page">
                     <p class="title"># Skills</p>
@@ -243,7 +243,7 @@
                 </div>
             </div>
         </section>
-        <section id="experiences">
+        <section id="experiences" class="reveal">
             <div class="experiences">
                 <div class="page">
                     <p class="title"># Experiences</p>
@@ -263,14 +263,54 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="works">
-                        <p>wadawdawdawfgawgw</p>
+                    <div class="tab works">
+                        <ul id="works-list">
+                            <li>
+                                <span class="position">Part-time Web Maintainer<span class="company"><i
+                                            class="fa-solid fa-location-dot icon"></i>Office of Acdaemic
+                                        Affairs, CYCU</span></span>
+                                <span class="date">Oct 2023 - Present</span>
+                                <ul class="description">
+                                    <li>Mainly updates activities and contents for progressing
+                                        teaching.</li>
+                                    <li>Implemented Excel to HTML formatter, which led to a 80% improvement in workflow.</li>
+                                </ul>
+                                <ul class="tag">
+                                    <li>WordPress</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Python</li>
+                                </ul>
+                                <div class="img-container">
+                                    <img src="img/works1.png">
+                                    <img src="img/works2.png">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="position">Java Developer<span class="company"><i
+                                            class="fa-solid fa-location-dot icon"></i>Remote
+                                        Freelance</span></span>
+                                <span class="date">Dec 2018 - Present</span>
+                                <ul class="description">
+                                    <li>Develop game plug-ins for online selling and distribution worldwide with 15000+ downloads.</li>
+                                    <li>Accepts commission for customized plug-ins with 200+ projects.</li>
+                                </ul>
+                                <ul class="tag">
+                                    <li>Java</li>
+                                    <li>SQL</li>
+                                    <li>Git</li>
+                                    <li>Maven</li>
+                                    <li>Redis</li>
+                                    <li>Servlet</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="projects" style="display: none;">
+                    <div class="tab projects" style="display: none;">
                         <p>projects</p>
                     </div>
 
-                    <div class="interests" style="display: none;">
+                    <div class="tab interests" style="display: none;">
                         <p>intereest</p>
                     </div>
                 </div>
