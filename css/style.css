@@ -10,6 +10,7 @@
 :root {
     --bg: rgb(36, 36, 36);
     --text-color: white;
+    --sub-text-color: rgba(255, 255, 255, 0.8);
     --window-color: rgb(90, 90, 90);
     --page-color: rgb(113, 113, 113);
     --highlight-color: rgb(83, 253, 112);
@@ -39,6 +40,7 @@
         30px 30px,
         30px 30px,
         30px 30px;
+    --sub-text-color: rgb(36, 36, 3, 0.8);
     --text-color: rgb(36, 36, 36);
     --window-color: rgb(233, 232, 232);
     --page-color: rgb(224, 224, 224);
@@ -53,7 +55,8 @@ p {
     letter-spacing: 0.09rem;
 }
 
-span {
+span,
+li {
     user-select: none;
 }
 
@@ -518,7 +521,7 @@ ol li.timeline-item :before {
 }
 
 .sub-text {
-    color: var(--text-color);
+    color: var(--sub-text-color);
     font-style: italic;
     font-size: small;
 }
@@ -576,23 +579,23 @@ nav {
     width: 100%;
 }
 
-ul#works-list {
+.experiences ul.exp-list {
     display: flex;
     flex-direction: column;
-    list-style: square;
+    list-style: none;
     gap: 8px;
     color: var(--text-color);
     font-size: 16px;
     line-height: 32px;
-    width: 32rem;
+    width: 34rem;
 }
 
-#works-list>li {
+.hr>li {
     position: relative;
     padding-bottom: 16px;
 }
 
-#works-list>li::after {
+.hr>li::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -602,8 +605,12 @@ ul#works-list {
     border-bottom: 1px solid var(--text-color);
 }
 
+#works-list {
+    list-style: square;
+}
+
 #works-list .position {
-    font-size: 20px;
+    font-size: 23px;
     color: var(--highlight-color);
     font-weight: 600;
     display: flex;
@@ -623,49 +630,112 @@ ul#works-list {
 }
 
 #works-list .date {
+    font-size: 1rem;
     font-style: italic;
 }
 
 #works-list .description {
     list-style: inside;
+    color: var(--sub-text-color);
+    font-size: 1rem;
 }
 
-#works-list .tag {
+.tag {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     list-style: none;
 }
 
-#works-list .tag li {
-    font-size: 1.05rem;
-    margin-block: 8px;
-    margin-inline: 4px;
-    padding-inline: 8px;
-    border-radius: 25%;
+.tag li {
+    font-size: 0.95rem;
+    margin-block: 4px;
+    margin-inline: 2px;
+    padding-inline: 12px;
+    border-radius: 15px;
+    border-color: var(--sub-text-color);
+    border-width: 0.1rem;
+    border-style: solid;
     background-color: var(--photo-border-glow-color);
 }
 
-#works-list .img-container {
-    float: left;
-    width: auto;
+.img-container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 12px;
-    margin-left: auto;
-    margin-right: auto;
     padding-block: 16px;
-    height: fit-content;
-    overflow: hidden;
 }
 
-#works-list .img-container img {
-    position: relative;
+.img-container .prev,
+.img-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow:
+        -1px -1px 0 var(--bg),
+        1px -1px 0 var(--bg),
+        -1px 1px 0 var(--bg),
+        1px 1px 0 var(--bg);
+    border-radius: 0 3px 3px 0;
+    transition: 0.6s ease;
+}
+
+.img-container .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.img-container .slide {
+    animation: fade 1s;
+    display: none;
+    align-items: center;
+}
+
+.img-container .show {
+    display: flex;
+}
+
+.img-container .slide img {
     border-radius: 15px;
-    width: 95%;
+    height: auto;
+    width: 100%;
     box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
 }
+
+#projects-list {
+    gap: 16px;
+}
+
+.project-container {
+    display: flex;
+}
+
+.project-container .name {
+    padding-top: 8px;
+    font-size: 24px !important;
+    font-weight: 800;
+    margin: 0px;
+    color: var(--highlight-color);
+}
+
+.project-container .description {
+    color: var(--sub-text-color);
+}
+
+.project-container img {
+    padding: 8px;
+    border-radius: 15px;
+    height: 11rem;
+    margin-inline: 4px;
+}
+
+.project-container .detail {}
 
 #theme {
     background-color: var(--page-color);
@@ -887,6 +957,16 @@ footer {
             }
 
         }
+    }
+
+    .project-container {
+        flex-direction: column;
+    }
+
+    .project-container img {
+        margin: 0 auto;
+        height: min(9rem, 25vw);
+        width: min(9rem, 25vw);
     }
 
 }

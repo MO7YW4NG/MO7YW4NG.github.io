@@ -82,3 +82,13 @@
             0 -0.5rem 2rem var(--highlight-color), 0 0.5rem 3rem var(--highlight-color);
     }
 }
+
+@keyframes fade {
+    from {
+        opacity: .3
+    }
+
+    to {
+        opacity: 1
+    }
+}

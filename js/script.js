@@ -14,8 +14,50 @@ $(document).ready(function () {
     $("div." + li.id).css({ 'display': '' });
   });
   $(document).on('scroll', reveal);
-});
+  $('.img-container').each(function () {
+    let $container = $(this);
+    let slideIdx = 1;
+    let autoplay;
 
+    showSlides($container, slideIdx);
+    $container.find('.prev').on('click', function () {
+      changeSlide($container, -1)
+    });
+    $container.find('.next').on('click', function () {
+      changeSlide($container, 1)
+    });
+    setAutoPlay($container);
+  });
+});
+function changeSlide($container, ctrl) {
+  let slideIdx = $container.data('slideIdx');
+  showSlides($container, slideIdx + ctrl);
+}
+function showSlides($container, idx) {
+  let $slides = $container.find(".slide");
+  let slideIdx = idx;
+
+  if (slideIdx > $slides.length) {
+    slideIdx = 1;
+  } else if (slideIdx === 0) {
+    slideIdx = $slides.length;
+  }
+
+  $slides.removeClass("show");
+  $slides.eq(slideIdx - 1).addClass("show");
+
+  $container.data('slideIdx', slideIdx);
+  setAutoPlay($container);
+}
+
+function setAutoPlay($container) {
+  let autoplay = $container.data('autoplay');
+  if (autoplay !== undefined) clearInterval(autoplay);
+  autoplay = setInterval(function () {
+    changeSlide($container, 1);
+  }, 5000);
+  $container.data('autoplay', autoplay);
+}
 function copy(str) {
   navigator.clipboard.writeText(str);
   hint('Copied!');
