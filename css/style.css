@@ -42,8 +42,8 @@
         30px 30px;
     --sub-text-color: rgb(36, 36, 3, 0.8);
     --text-color: rgb(36, 36, 36);
-    --window-color: rgb(233, 232, 232);
-    --page-color: rgb(224, 224, 224);
+    --window-color: rgb(240, 240, 240);
+    --page-color: rgb(225, 225, 225);
     --highlight-color: rgb(206, 35, 129);
     --photo-border-color: #e8188a;
     --photo-border-glow-color: rgba(255, 71, 141, 0.6);
@@ -108,10 +108,14 @@ main {
     border-top-right-radius: 32px;
 }
 
+.quote,
+.education {
+    transition: transform 0.3s ease-in-out;
+
+}
+
 .quote:hover,
-.education:hover,
-.skills:hover,
-.experiences:hover {
+.education:hover {
     transform: scale(1.03);
 
     .page {
@@ -188,7 +192,7 @@ main {
     }
 }
 
-ul#skill-slider {
+ul.skill-slider {
     list-style-type: none;
     display: flex;
     justify-content: start;
@@ -201,11 +205,19 @@ ul#skill-slider {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
     flex-direction: column;
 }
 
 .subtitle {
     text-align: center;
+    margin: 12px;
 }
 
 .skills-section {
@@ -214,6 +226,11 @@ ul#skill-slider {
     align-items: center;
     flex-direction: column;
     padding: 4px;
+    padding-bottom: 32px;
+
+    .title {
+        margin: 24px;
+    }
 }
 
 .skills-section:hover .title {
@@ -248,12 +265,12 @@ ul#skill-slider {
         visibility: visible;
     }
 
-    #icon {
+    .progress-icon {
         animation: slide-rotate-hor-b-fwd 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
     }
 }
 
-#icon {
+.circle .progress-icon {
     top: 30px;
     left: 30px;
     width: 60px;
@@ -264,7 +281,7 @@ ul#skill-slider {
     z-index: 1;
 }
 
-.inner {
+.circle .inner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -289,6 +306,87 @@ ul#skill-slider {
     #small {
         font-size: 18px;
         top: 5px;
+    }
+}
+
+.progress-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+
+    .progress-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+
+    .info-name {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        font-size: 18px;
+
+        .subtitle {
+            margin: 0;
+            margin-left: 8px;
+        }
+    }
+
+    .progress-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        color: var(--highlight-color);
+    }
+
+    .percent {
+        transition: all 0.3s;
+        align-items: center;
+        display: flex;
+        margin: 0;
+        color: var(--text-color);
+    }
+}
+
+.progress-outline-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 16px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar {
+    flex-direction: column;
+    min-width: 28.5rem;
+}
+
+.progress-bar {
+    width: var(--percent);
+    height: 100%;
+    background-color: var(--highlight-color);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.progress-container:hover {
+    animation: pulsate-fwd 0.5s ease-in-out both;
+
+    .progress-bar {
+        animation: progress 1s ease-in;
+    }
+
+    .percent {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-weight: bold;
+        color: var(--highlight-color);
     }
 }
 
@@ -325,6 +423,7 @@ ul#skill-slider {
     }
 
     #experience-menu-icon {
+        height: 24px;
         margin-inline-end: 6px;
         color: var(--text-color)
     }
@@ -343,6 +442,7 @@ ul#skill-slider {
 }
 
 .self {
+    transition: transform 0.3s ease-in-out;
     padding: 8px;
     background-color: var(--window-color);
     border-radius: 32px;
@@ -401,6 +501,13 @@ p.contact {
 }
 
 #contact-icon i {
+    font-size: large;
+    margin-right: 8px;
+    height: 20px;
+    width: 20px;
+}
+
+#contact-icon svg {
     font-size: large;
     margin-right: 8px;
     height: 20px;
@@ -531,7 +638,16 @@ nav {
     padding: 8px;
     position: sticky;
     top: 0px;
-    z-index: 1000;
+    z-index: 10;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+.nav-reveal {
+    background-color: rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
 }
 
 #menu {
@@ -575,8 +691,9 @@ nav {
 .tab {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    /* gap: 16px; */
     width: 100%;
+    transition: text 0.3s ease-in-out;
 }
 
 .experiences ul.exp-list {
@@ -587,7 +704,7 @@ nav {
     color: var(--text-color);
     font-size: 16px;
     line-height: 32px;
-    width: 34rem;
+    width: 34.6rem;
 }
 
 .hr>li {
@@ -624,8 +741,10 @@ nav {
     /* justify-content: end; */
 }
 
-#works-list i[class$="icon"] {
-    line-height: 24px;
+#works-list svg {
+    height: 18px;
+    position: relative;
+    top: 4px;
     margin-inline: 4px;
 }
 
@@ -634,16 +753,22 @@ nav {
     font-style: italic;
 }
 
+.description {
+    letter-spacing: 0.03rem;
+    color: var(--sub-text-color);
+}
+
 #works-list .description {
     list-style: inside;
-    color: var(--sub-text-color);
     font-size: 1rem;
 }
 
 .tag {
+    margin-block: 8px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    /* justify-content: center; */
     list-style: none;
 }
 
@@ -659,13 +784,45 @@ nav {
     background-color: var(--photo-border-glow-color);
 }
 
+.links {
+    margin-block: 8px;
+    list-style: none;
+
+}
+
+.link {
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 15px;
+    background-color: var(--page-color);
+    padding-inline: 16px;
+    text-decoration-line: unset;
+    color: var(--text-color);
+}
+
+.link:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+}
+
+.link-icon {
+    height: 24px;
+    padding-right: 8px;
+}
+
 .img-container {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
-    padding-block: 16px;
+    margin-block: 16px;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .img-container .prev,
@@ -702,19 +859,42 @@ nav {
 }
 
 .img-container .slide img {
+    transition: transform 0.3s ease-in;
     border-radius: 15px;
     height: auto;
     width: 100%;
+    object-fit: contain;
     box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+}
+
+.img-container:hover img {
+    transform: scale(1.1);
 }
 
 #projects-list {
     gap: 16px;
 }
 
+#projects-list >li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video {
+    height: 304px;
+    width: 540px;
+}
+
 .project-container {
     display: flex;
+
+    >img {
+        transition: transform 0.3s ease-in;
+    }
 }
+
 
 .project-container .name {
     padding-top: 8px;
@@ -724,18 +904,24 @@ nav {
     color: var(--highlight-color);
 }
 
-.project-container .description {
-    color: var(--sub-text-color);
-}
 
 .project-container img {
-    padding: 8px;
+    padding: 4px;
+    margin-block: 4px;
+    padding-right: 16px;
     border-radius: 15px;
-    height: 11rem;
-    margin-inline: 4px;
+    height: 10rem;
+    width: auto;
 }
 
-.project-container .detail {}
+.project-container:hover img {
+    transform: scale(1.05);
+}
+
+.project-container .detail {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
 
 #theme {
     background-color: var(--page-color);
@@ -790,7 +976,7 @@ footer {
     text-align: center;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media screen and (max-width:768px) {
 
     :root * {
@@ -837,8 +1023,8 @@ footer {
     }
 
     .self:hover .portrait {
-        width: max(7.25rem, 24vw);
-        height: max(7.25rem, 24vw);
+        width: max(7.25rem, 22.5vw);
+        height: max(7.25rem, 22.5vw);
     }
 
     .portrait {
@@ -924,19 +1110,26 @@ footer {
         font-size: 16px;
     }
 
-    ul#skill-slider {
+    ul.skill-slider {
         justify-content: center;
         gap: 3vw !important;
         flex-wrap: wrap;
     }
 
-    .skills-section .progress-section {
-        .circle {
-            width: 6rem;
-            height: 6rem;
+    .progress-container {
+        max-width: 70vw;
+
+        .progress-outline-bar {
+            max-width: 70vw;
         }
 
-        #icon {
+    }
+
+    .circle {
+        width: 6rem;
+        height: 6rem;
+
+        .progress-icon {
             top: 24px;
             left: 24px;
             width: 46px;
@@ -959,14 +1152,28 @@ footer {
         }
     }
 
-    .project-container {
-        flex-direction: column;
+    #experience-menu li {
+        min-width: 20vw;
+        max-width: 22vw;
+
+        .btn {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: max(1.3rem, 3vw);
+            margin: 4px;
+        }
+    }
+
+    .link {
+        font-size: max(13.5px, 2.2vw);
     }
 
     .project-container img {
         margin: 0 auto;
-        height: min(9rem, 25vw);
-        width: min(9rem, 25vw);
+        height: min(10rem, 25vw);
+        padding-right: 4px;
+        width: auto;
     }
 
 }

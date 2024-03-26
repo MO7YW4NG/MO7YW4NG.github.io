@@ -8,9 +8,8 @@ $(document).ready(function () {
     $("li.selected").removeClass("selected");
     li.classList.add("selected");
     $("div." + li.id).animate({
-      opacity: "toggle",
-      height: "toggle"
-    }, 'slow');
+      opacity: "toggle"
+    }, '1500');
     $("div." + li.id).css({ 'display': '' });
   });
   $(document).on('scroll', reveal);
@@ -27,6 +26,16 @@ $(document).ready(function () {
       changeSlide($container, 1)
     });
     setAutoPlay($container);
+  });
+  $(document).on('scroll resize', function () {
+    var nav = $('nav').get(0);
+    if (nav.getBoundingClientRect().top == 0) {
+      nav.classList.add('nav-reveal');
+      $('#menu li a').css({ 'color': 'white' });
+    } else {
+      nav.classList.remove('nav-reveal');
+      $('#menu li a').css({ 'color': '' });
+    }
   });
 });
 function changeSlide($container, ctrl) {
