@@ -1009,7 +1009,7 @@ footer {
     }
 
     span {
-        font-size: min(0.85rem, max(0.7rem, 3vw));
+        font-size: min(1rem, max(0.9rem, 3vw));
         text-overflow: ellipsis;
     }
 
@@ -1163,8 +1163,16 @@ footer {
             display: flex;
             align-items: center;
             flex-direction: column;
-            font-size: max(1.3rem, 3vw);
+            font-size: max(1.05rem, 3vw);
             margin: 4px;
+        }
+    }
+
+    .project-container {
+        flex-direction: column;
+
+        .name,.description {
+            text-align: center;
         }
     }
 
