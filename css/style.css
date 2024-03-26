@@ -852,6 +852,7 @@ nav {
     animation: fade 1s;
     display: none;
     align-items: center;
+    overflow: hidden;
 }
 
 .img-container .show {
@@ -875,16 +876,18 @@ nav {
     gap: 16px;
 }
 
-#projects-list >li {
+#projects-list>li {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.video {
-    height: 304px;
-    width: 540px;
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
 }
 
 .project-container {
