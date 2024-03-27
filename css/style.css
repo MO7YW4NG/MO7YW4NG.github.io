@@ -102,6 +102,7 @@ main {
     padding-left: 16px;
     padding-right: 3em;
     display: flex;
+    width: -moz-fit-content;
     width: fit-content;
     background-color: var(--page-color);
     border-top-left-radius: 32px;
@@ -156,12 +157,15 @@ main {
 
 .info-box {
     margin: 6px;
+    margin-left: 0px;
     height: 100%;
     flex-grow: 1;
     /* width: max(34%, 226.76px); */
 }
 
 #right {
+    margin-left: 6px;
+    margin-right: 0px;
     display: flex;
     gap: 0.711rem;
     flex-direction: column;
@@ -179,7 +183,6 @@ main {
 
 .skills,
 .experiences {
-    margin: 6px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -491,7 +494,7 @@ p.contact {
     opacity: 0.95;
 }
 
-#contact-icon {
+#contacts {
     display: flex;
     align-items: start;
     flex-direction: column;
@@ -500,22 +503,15 @@ p.contact {
     line-height: 32px;
 }
 
-#contact-icon i {
+
+#contacts svg {
     font-size: large;
-    margin-right: 8px;
+    margin-inline: 8px;
     height: 20px;
     width: 20px;
 }
 
-#contact-icon svg {
-    font-size: large;
-    margin-right: 8px;
-    height: 20px;
-    width: 20px;
-}
-
-#contact-icon li {
-    float: left;
+#contacts li {
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -523,7 +519,7 @@ p.contact {
     text-align: center;
 }
 
-#contact-icon a {
+#contacts a {
     font-size: 13px;
     text-decoration: none;
     color: var(--text-color);
@@ -532,11 +528,7 @@ p.contact {
     display: flex;
 }
 
-#contact-icon span {
-    user-select: none;
-}
-
-#contact-icon a:hover {
+#contacts a:hover {
     font-size: 13.5px;
     transition: 0.3s;
     color: var(--highlight-color);
@@ -691,7 +683,6 @@ nav {
 .tab {
     display: flex;
     justify-content: center;
-    /* gap: 16px; */
     width: 100%;
     transition: text 0.3s ease-in-out;
 }
@@ -787,7 +778,6 @@ nav {
 .links {
     margin-block: 8px;
     list-style: none;
-
 }
 
 .link {
@@ -855,11 +845,22 @@ nav {
     overflow: hidden;
 }
 
+.img-container .title {
+    z-index: 2;
+    color: white;
+    font-size: min(2.1rem, 5vw);
+    text-shadow: 2px 2px 5px black;
+    position: absolute;
+    bottom: 15%;
+    left: 6%;
+}
+
 .img-container .show {
     display: flex;
 }
 
 .img-container .slide img {
+    position: relative;
     transition: transform 0.3s ease-in;
     border-radius: 15px;
     height: auto;
@@ -906,7 +907,6 @@ iframe {
     margin: 0px;
     color: var(--highlight-color);
 }
-
 
 .project-container img {
     padding: 4px;
@@ -1014,6 +1014,7 @@ footer {
     }
 
     .info-box {
+        margin: 0 !important;
         width: 100%;
     }
 
@@ -1042,7 +1043,7 @@ footer {
         padding: 0.1vw;
     }
 
-    #contact-icon {
+    #contacts {
         min-width: 0;
     }
 
@@ -1061,7 +1062,7 @@ footer {
     .about {
         flex-direction: column;
         height: auto;
-        gap: 0.7rem;
+        gap: 1.4rem;
     }
 
     nav {
@@ -1171,7 +1172,8 @@ footer {
     .project-container {
         flex-direction: column;
 
-        .name,.description {
+        .name,
+        .description {
             text-align: center;
         }
     }
