@@ -581,7 +581,7 @@ body:not(.light) p.quote:hover {
 
 .timeline-item {
     width: auto;
-    list-style: disc;
+    list-style: none;
     color: var(--text-color);
     line-height: 19px;
     margin-top: -12px;
@@ -646,10 +646,6 @@ nav {
     width: 648px;
     overflow: hidden;
     display: flex;
-    margin: 10px auto;
-}
-
-#menu ul {
     margin: 10px auto;
     padding: 0;
     list-style: none;
@@ -780,6 +776,10 @@ nav {
     list-style: none;
 }
 
+.links li+li {
+    margin-top: 8px;
+}
+
 .link {
     transition: all 0.3s;
     display: flex;
@@ -790,6 +790,10 @@ nav {
     padding-inline: 16px;
     text-decoration-line: unset;
     color: var(--text-color);
+
+    .link-name {
+        padding-left: 8px;
+    }
 }
 
 .link:hover {
@@ -800,8 +804,10 @@ nav {
 }
 
 .link-icon {
+    vertical-align: middle;
+    text-align: center;
     height: 24px;
-    padding-right: 8px;
+    aspect-ratio: 1/1;
 }
 
 .img-container {
@@ -848,6 +854,8 @@ nav {
 .img-container .title {
     z-index: 2;
     color: white;
+    padding-left: 2px;
+    border-left: 2px solid var(--highlight-color);
     font-size: min(2.1rem, 5vw);
     text-shadow: 2px 2px 5px black;
     position: absolute;
@@ -925,6 +933,13 @@ iframe {
     flex-grow: 1;
     flex-shrink: 1;
 }
+
+.interest-container .title {
+    color: var(--highlight-color);
+    margin-block: 8px;
+}
+
+
 
 #theme {
     background-color: var(--page-color);
