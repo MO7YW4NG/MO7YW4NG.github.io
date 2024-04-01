@@ -823,6 +823,8 @@ nav {
 
 .img-container .prev,
 .img-container .next {
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-30px);
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -836,10 +838,10 @@ nav {
         -1px 1px 0 var(--bg),
         1px 1px 0 var(--bg);
     border-radius: 0 3px 3px 0;
-    transition: 0.6s ease;
 }
 
 .img-container .next {
+    transform: translateX(30px);
     right: 0;
     border-radius: 3px 0 0 3px;
 }
@@ -851,15 +853,18 @@ nav {
     overflow: hidden;
 }
 
-.img-container .title {
+.img-container .slide .title {
+    transition: all 1s;
+    transform: translateY(100px);
     z-index: 2;
     color: white;
-    padding-left: 2px;
-    border-left: 2px solid var(--highlight-color);
+    padding-left: min(12px,2vw);
+    line-height: min(26px,4vw);
+    border-left: 4px solid var(--highlight-color);
     font-size: min(2.1rem, 5vw);
     text-shadow: 2px 2px 5px black;
     position: absolute;
-    bottom: 15%;
+    bottom: 12%;
     left: 6%;
 }
 
@@ -877,8 +882,19 @@ nav {
     box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
 }
 
-.img-container:hover img {
-    transform: scale(1.1);
+.img-container:hover {
+    .slide img {
+        transform: scale(1.1);
+    }
+
+    .title {
+        transform: translateY(0);
+    }
+
+    .prev,
+    .next {
+        transform: translateX(0px);
+    }
 }
 
 #projects-list {
@@ -998,7 +1014,7 @@ footer {
 @media screen and (max-width:768px) {
 
     :root * {
-        transition: all 300ms ease, left 300ms ease-in-out;
+        transition: all 300ms ease;
     }
 
     main {
@@ -1204,4 +1220,14 @@ footer {
         width: auto;
     }
 
+    .img-container {
+        .slide .title {
+            transform: translateY(0);
+        }
+
+        .prev,
+        .next {
+            transform: translateX(0px);
+        }
+    }
 }
