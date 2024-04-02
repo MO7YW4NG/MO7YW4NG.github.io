@@ -4,13 +4,13 @@ $(document).ready(function () {
     var li = this;
     if (li.classList.contains("selected"))
       return;
-    $('div.' + $(".selected").attr('id')).css({ 'display': 'none' });
+    $('.' + $(".selected").attr('id')).css({ 'display': 'none' });
     $("li.selected").removeClass("selected");
     li.classList.add("selected");
-    $("div." + li.id).animate({
+    $("." + li.id).animate({
       opacity: "toggle"
     }, '1500');
-    $("div." + li.id).css({ 'display': '' });
+    $("." + li.id).css({ 'display': '' });
   });
   $(document).on('scroll', reveal);
   $('.img-container').each(function () {

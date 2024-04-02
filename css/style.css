@@ -858,8 +858,8 @@ nav {
     transform: translateY(100px);
     z-index: 2;
     color: white;
-    padding-left: min(12px,2vw);
-    line-height: min(26px,4vw);
+    padding-left: min(12px, 2vw);
+    line-height: min(26px, 4vw);
     border-left: 4px solid var(--highlight-color);
     font-size: min(2.1rem, 5vw);
     text-shadow: 2px 2px 5px black;
@@ -963,10 +963,10 @@ iframe {
     padding: 6px;
     color: var(--text-color);
     float: left;
-    font-size: 46px;
+    font-size: min(46px, max(32px, 6vw));
     align-items: center;
-    left: 32px;
-    bottom: 32px;
+    left: 2rem;
+    bottom: 2rem;
     position: fixed;
     justify-content: center;
 }
@@ -975,7 +975,7 @@ iframe {
     color: var(--highlight-color);
     user-select: none;
     -webkit-user-select: none;
-    font-size: 48px;
+    font-size: min(48px, max(36px, 6.5vw));
     transition: 0.2s;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
