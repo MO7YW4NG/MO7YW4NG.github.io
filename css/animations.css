@@ -1,10 +1,14 @@
 @keyframes slide-rotate-hor-b-fwd {
     0% {
+        -webkit-transform: translateY(0) translateZ(0) rotateX(0deg);
+        -webkit-transform-origin: top center;
         transform: translateY(0) translateZ(0) rotateX(0deg);
         transform-origin: top center;
     }
 
     100% {
+        -webkit-transform: translateY(150px) translateZ(130px) rotateX(90deg);
+        -webkit-transform-origin: top center;
         transform: translateY(150px) translateZ(130px) rotateX(90deg);
         transform-origin: top center;
     }
@@ -12,10 +16,12 @@
 
 @keyframes slide-top {
     0% {
+        -webkit-transform: translateY(-100px);
         transform: translateY(-100px);
     }
 
     100% {
+        -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
 }

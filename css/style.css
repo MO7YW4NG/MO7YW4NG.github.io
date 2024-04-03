@@ -51,12 +51,14 @@
 
 p {
     color: var(--text-color);
+    -webkit-user-select: none;
     user-select: none;
     letter-spacing: 0.09rem;
 }
 
 span,
 li {
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -314,7 +316,7 @@ ul.skill-slider {
 
 .progress-container {
     display: flex;
-    width: 100%;
+    width: 28.5rem;
     align-items: center;
     overflow: hidden;
 
@@ -361,11 +363,6 @@ ul.skill-slider {
     background-color: var(--text-color);
     border-radius: 10px;
     overflow: hidden;
-}
-
-.bar {
-    flex-direction: column;
-    min-width: 28.5rem;
 }
 
 .progress-bar {
@@ -637,9 +634,10 @@ nav {
 
 .nav-reveal {
     background-color: rgba(0, 0, 0, .2);
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+
 }
 
 #menu {
@@ -798,9 +796,9 @@ nav {
 
 .link:hover {
     transform: scale(1.02);
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
 }
 
 .link-icon {
@@ -973,8 +971,8 @@ iframe {
 
 #theme-btn span:hover {
     color: var(--highlight-color);
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     font-size: min(48px, max(36px, 6.5vw));
     transition: 0.2s;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
