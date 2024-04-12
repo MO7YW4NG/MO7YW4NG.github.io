@@ -1,4 +1,3 @@
-var bool = true;
 $(document).ready(function () {
   $(document).on('click', '#experience-menu li:not(.selected)', function () {
     var li = this;
@@ -72,7 +71,7 @@ function copy(str) {
   hint('Copied!');
 }
 function toggle() {
-  bool = !bool;
+  var bool = $('#theme').text() != 'dark_mode';
   $('#theme').text(bool ? 'dark_mode' : 'light_mode');
   if (bool) {
     $("body").addClass("light");
