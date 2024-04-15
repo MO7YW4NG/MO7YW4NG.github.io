@@ -46,7 +46,7 @@
                             </p>
                             <ul id="contacts">
                                 <!-- Copy email instead of mailto, no one uses local mail client -->
-                                <li><a onclick="copy('motywang@gmail.com');"><svg xmlns="http://www.w3.org/2000/svg"
+                                <li><a href="mailto:motywang@gmail.com" onclick="copy('motywang@gmail.com');"><svg xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 512 512">
                                             <path fill="currentColor"
                                                 d="M64 208.1L256 65.9 448 208.1v47.4L289.5 373c-9.7 7.2-21.4 11-33.5 11s-23.8-3.9-33.5-11L64 255.5V208.1zM256 0c-12.1 0-23.8 3.9-33.5 11L25.9 156.7C9.6 168.8 0 187.8 0 208.1V448c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V208.1c0-20.3-9.6-39.4-25.9-51.4L289.5 11C279.8 3.9 268.1 0 256 0z" />
@@ -463,7 +463,9 @@
                                     <div class="detail">
                                         <p class="name">CYCU Course Selector</p>
                                         <span class="description">Course selection bot which automates course enrollment
-                                            from the watchlist.</span>
+                                            from the students' track list. Sends post requests to Myself backend
+                                            server
+                                            directly and supports multiple accounts running at the same time.</span>
                                         <ul class="links">
                                             <li>
                                                 <a class="link" href="https://github.com/MO7YW4NG/CYCU-Course-Selector"
@@ -492,9 +494,7 @@
                                     <img src="img/projects/pj2.png" alt="proj-icon">
                                     <div class="detail">
                                         <p class="name">CYLost</p>
-                                        <span class="description">An android application that provides a lost and
-                                            found
-                                            platform for students in CYCU.</span>
+                                        <span class="description">An android application that provides a lost and found platform for students in CYCU. Automatically retrieves information on lost items from iTouch every day. Features include map pins and photos for better experiences.</span>
                                         <ul class="links">
                                             <li>
                                                 <a class="link" href="https://github.com/MO7YW4NG/CYLost"
@@ -529,12 +529,14 @@
                                     <img src="img/projects/pj3.png" alt="proj-icon">
                                     <div class="detail">
                                         <p class="name">Hule [ON-GOING]</p>
-                                        <span class="description">A multi-platform app that uses computer vision AI to
-                                            detect the Mahjong tiles you're waiting for from images.</span>
+                                        <span class="description">A multi-platform app that uses object detection model
+                                            to
+                                            detect the Mahjong tiles you're waiting for from images or camera.</span>
                                         <ul class="tag">
                                             <li>Flutter</li>
                                             <li>ML</li>
-                                            <li>Cloud</li>
+                                            <li>TensorFlow</li>
+                                            <li>Dart</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -552,9 +554,10 @@
                             <li>
                                 <div class="interest-container">
                                     <p class="title"><i class="fa-solid fa-music"></i> Music</p>
-                                    <span>Started writing hip-hop rap songs at age 16 with the artist name
+                                    <span class="description">Started writing hip-hop rap songs at age 16 with the
+                                        artist name
                                         'XellFish',<br>self-taught in music production, includes track recording, mixing
-                                        and mastering.<br>CYCU HHDC member, participated in 3 public live
+                                        and mastering. CYCU HHDC member, participated in 3 public live
                                         performances.</span>
                                     <ul class="links">
                                         <li>
@@ -597,7 +600,8 @@
                             <li>
                                 <div class="interest-container">
                                     <p class="title"><i class="fa-solid fa-gamepad"></i> PC Game</p>
-                                    <span>Gamer since birth. GTA-V pre-order player, Minecraft player since
+                                    <span class="description">Gamer since birth. GTA-V pre-order player, Minecraft
+                                        player since
                                         v1.6.4.</span>
                                     <div class="img-container">
                                         <div class="slide show">
