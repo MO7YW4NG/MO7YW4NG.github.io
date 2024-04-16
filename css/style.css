@@ -308,7 +308,7 @@ ul.skill-slider {
         visibility: hidden;
     }
 
-    #small {
+    .small {
         font-size: 18px;
         top: 5px;
     }
@@ -417,12 +417,12 @@ ul.skill-slider {
             color: var(--highlight-color);
         }
 
-        #experience-menu-icon {
+        .experience-menu-icon {
             color: var(--highlight-color)
         }
     }
 
-    #experience-menu-icon {
+    .experience-menu-icon {
         height: 24px;
         margin-inline-end: 6px;
         color: var(--text-color)
@@ -436,7 +436,7 @@ ul.skill-slider {
         color: var(--highlight-color);
     }
 
-    #experience-menu-icon {
+    .experience-menu-icon {
         color: var(--highlight-color)
     }
 }
@@ -1176,7 +1176,7 @@ footer {
                 font-size: 32px;
             }
 
-            #small {
+            .small {
                 top: 4px;
                 font-size: 18px;
             }
