@@ -741,6 +741,14 @@ nav {
 .description {
     letter-spacing: 0.03rem;
     color: var(--sub-text-color);
+
+    .highlight {
+        transition: color 0.5s;
+    }
+}
+
+.container:hover .highlight{
+    color: var(--highlight-color);
 }
 
 #works-list .description {
@@ -951,8 +959,6 @@ iframe {
     color: var(--highlight-color);
     margin-block: 8px;
 }
-
-
 
 #theme {
     background-color: var(--page-color);
